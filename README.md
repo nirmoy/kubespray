@@ -52,6 +52,7 @@ Documents
 -   [Vagrant install](docs/vagrant.md)
 -   [CoreOS bootstrap](docs/coreos.md)
 -   [Debian Jessie setup](docs/debian.md)
+-   [openSUSE Leap setup](docs/opensuse.md)
 -   [Downloaded artifacts](docs/downloads.md)
 -   [Cloud providers](docs/cloud.md)
 -   [OpenStack](docs/openstack.md)
@@ -69,6 +70,7 @@ Supported Linux Distributions
 -   **Debian** Jessie
 -   **Ubuntu** 16.04
 -   **CentOS/RHEL** 7
+*   **openSUSE Leap 42.3
 
 Note: Upstart/SysV init based OS types are not supported.
 
