@@ -200,9 +200,25 @@
   retries: 4
   delay: "{{ retry_stagger | random + 3 }}"
   with_items: "{{required_pkgs | default([]) | union(common_required_pkgs|default([]))}}"
-  when: not (ansible_os_family in ["CoreOS", "Container Linux by CoreOS"] or is_atomic)
+  when: not (ansible_os_family in ["CoreOS", "Container Linux by CoreOS"] or is_atomic or ansible_distribution in ["openSUSE Tumbleweed"])
   tags:
     - bootstrap-os
+
+# reject openssl as it create a conflict with already installed openssl version
+- name: Install packages requirements on openSUSE Tumbleweed
+  action:
+    module: "{{ ansible_pkg_mgr }}"
+    name: "{{ item }}"
+    state: latest
+  register: pkgs_task_result
+  until: pkgs_task_result|succeeded
+  retries: 4
+  delay: "{{ retry_stagger | random + 3 }}"
+  with_items: "{{required_pkgs | default([]) | union((common_required_pkgs|reject('search','openssl')|list)|default([]))}}"
+  when: ansible_distribution == "openSUSE Tumbleweed"
+  tags:
+    - bootstrap-os
+
 
 # Todo : selinux configuration
 - name: Confirm selinux deployed
