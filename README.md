@@ -71,6 +71,7 @@ Supported Linux Distributions
 -   **Ubuntu** 16.04
 -   **CentOS/RHEL** 7
 *   **openSUSE Leap 42.3
+*   **openSUSE Tumbleweed
 
 Note: Upstart/SysV init based OS types are not supported.
 

@@ -1,7 +1,7 @@
 openSUSE Leap 42.3
 ===============
 
-openSUSE Leap installation Notes:
+openSUSE Leap and openSUSE Tumbleweed installation Notes:
 
 - Install Ansible
 
